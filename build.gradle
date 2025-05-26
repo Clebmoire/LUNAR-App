@@ -1,0 +1,24 @@
+buildscript {
+    repositories {
+        google()
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:8.0.2'
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        mavenCentral()
+        flatDir {
+            dirs 'unityLibrary/build/outputs/aar', 'unityLibrary/libs'
+        }
+    }
+}
+
+// This is the important part to ensure Unity is linked
+dependencies {
+    implementation project(':unityLibrary')
+}
